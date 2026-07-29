@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 9yns6caYrXgcfPR2DXdkKemABhg4ie26UZgdtIKz1JySWooXtnA2Dem1Q9J1DY5
+\restrict 3KpE9iaquEuxY865kfS4cVuFrcz4rHEdsYBA9yiuBoBWS3TJHnouID1fEQe9ZvA
 
 -- Dumped from database version 18.4
 -- Dumped by pg_dump version 18.4
@@ -630,7 +630,9 @@ CREATE TABLE public.suppliers (
     supplier_code text NOT NULL,
     supplier_name text NOT NULL,
     is_active boolean DEFAULT true NOT NULL,
-    comment text
+    comment text,
+    moysklad_id uuid,
+    moysklad_external_code text
 );
 
 
@@ -3037,6 +3039,20 @@ ALTER TABLE ONLY sima_land.invoices
 
 
 --
+-- Name: ux_suppliers_moysklad_external_code; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX ux_suppliers_moysklad_external_code ON public.suppliers USING btree (moysklad_external_code) WHERE (moysklad_external_code IS NOT NULL);
+
+
+--
+-- Name: ux_suppliers_moysklad_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX ux_suppliers_moysklad_id ON public.suppliers USING btree (moysklad_id) WHERE (moysklad_id IS NOT NULL);
+
+
+--
 -- Name: idx_article_events_article; Type: INDEX; Schema: sima_land; Owner: -
 --
 
@@ -3308,5 +3324,5 @@ ALTER TABLE ONLY sima_land.sima_products
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 9yns6caYrXgcfPR2DXdkKemABhg4ie26UZgdtIKz1JySWooXtnA2Dem1Q9J1DY5
+\unrestrict 3KpE9iaquEuxY865kfS4cVuFrcz4rHEdsYBA9yiuBoBWS3TJHnouID1fEQe9ZvA
 
