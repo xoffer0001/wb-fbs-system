@@ -2,7 +2,6 @@
 -- PostgreSQL database dump
 --
 
-\restrict HomeFbsSchemaDump
 
 -- Dumped from database version 18.4
 -- Dumped by pg_dump version 18.4
@@ -3323,6 +3322,3 @@ ALTER TABLE ONLY sima_land.sima_products
 --
 -- PostgreSQL database dump complete
 --
-
-\unrestrict HomeFbsSchemaDump
-
